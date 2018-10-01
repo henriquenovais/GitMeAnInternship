@@ -1,6 +1,6 @@
 const readline = require('readline');
 
-var translator = readline.createInterface({
+const translator = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });

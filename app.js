@@ -1,7 +1,7 @@
 var application = require("./config/server.js");
 var connMySQL = require("./config/dbConnection.js");
-var translator = require("./config/translator.js");
-
+const translator = require("./config/translator.js");
+/*
 con = connMySQL();
 
 con.connect(error => {
@@ -10,17 +10,40 @@ con.connect(error => {
   }
 });
 
+*/
 
-application.listen(3000, () => {
-    console.log("I'm online boys");
-});
+
 
 
 translator.question("Enter website url: \n", url => {
   var website = { siteurl: url };
+
+  //translator.close();
+
+
+
+    translator.question("Enter website content: \n", content => {
+            var website = { siteurl: url, sitecontent: content };
+            translator.close();
+    });
+});
+
+
+        
+
+    /*
   translator.question("Enter website content: \n", content => {
     var website = { siteurl: url, sitecontent: content };
-    con.query("INSERT INTO website SET ?", website, error => {
+    translator.close();
+    
+      });
+      */
+
+
+    
+
+
+/*con.query("INSERT INTO website SET ?", website, error => {
       if (error) {
         throw error;
       }
@@ -33,15 +56,17 @@ translator.question("Enter website url: \n", url => {
 
         for (var i = 0; i < data.length; i++) {
           console.log(data[i].siteurl, data[i].sitecontent);
-        };
+        }
       });
     });
-    translator.close();
-  });
-});
+    */
 
+//translator.close();
+
+/*
 application.listen(8000, () => {
     console.log("I'm online boys");
 });
+*/
 
 
