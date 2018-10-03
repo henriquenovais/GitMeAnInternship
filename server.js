@@ -1,13 +1,19 @@
 const express = require('express');
+const application = express();
+const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const port = 4000;
 
-const application = express();
 
-application.use(bodyParser.json());
+application.use(bodyParser.json({
+  type: "*/*"
+}));
 application.use(bodyParser.urlencoded({ extended: true }));
+application.use(cors());
+
+
+// application.use(express.json());
 /*
 const port = process.env.PORT || 5000;
 
@@ -30,7 +36,7 @@ connection.connect( (err) => {
 });
 
 
-application.use(cors());
+
 
 application.get('/', (req,res) => {
   res.send('This is a message from the other side of the world dude!');
@@ -41,19 +47,17 @@ application.get('/entities', (req, res) => {
 });
 
 application.post('/entities', (req, res) => {
-  //var info = {};
-  var info = JSON.stringify(req.body);
-  //info = req.body;
-  console.log(info);
-  const INSERT_QUERY = 'INSERT INTO jusearch.website SET ?';
+  var info = req.body;
+  //var title = req.body.title;
+  //var type = req.body.type;
+  const INSERT_QUERY = "INSERT INTO jusearch.website SET ?"; //VALUES('" + title + "','" + type +"')";
   
 
   var query = connection.query(INSERT_QUERY, info, (err, result) => {
     if(err){
-      //return
-      console.log(err) ;
+        return err ;
     }else{
-      console.log('Sucessfully inserted query!');
+      console.log("Sucessfully inserted website's url and content data!");
     }
   });
 
@@ -61,7 +65,7 @@ application.post('/entities', (req, res) => {
 
 application.get('/entities/:search' , (req,res) => {
   var search = req.params.search;
-  const SEARCH_QUERY = 'SELECT * FROM jusearch.website WHERE MATCH(title) AGAINST ("'+search+'") OR MATCH(type) AGAINST ("'+search+'")';
+  const SEARCH_QUERY = 'SELECT * FROM jusearch.website WHERE MATCH(title) AGAINST ("'+ search +'") OR MATCH(type) AGAINST ("'+search+'")';
   var query = connection.query(SEARCH_QUERY, (err,result) => {
     if(err){
       return err;
