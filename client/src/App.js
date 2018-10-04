@@ -1,53 +1,18 @@
-/*
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      <h1>TESTE</h1>
-      </div>
-    );
-  }
-}
-
-export default App;
-*/
-
-import React, {Component} from 'react';
-import logo from './logo.svg';
+import logo from './nyancat.gif';
+import Displaysearch from './components/displaysearch/displaysearch'
+import Insertsite from './components/insertsite/insertsite';
 import './App.css';
 
 class App extends Component {
-  state = {
-    response: ''
-  };
-
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
-  }
-
-  callApi = async () => {
-    const response = await fetch('/api/mensagem');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">{this.state.response}</p>
+        <Insertsite />
+        <Displaysearch/>
       </div>
     );
   }
