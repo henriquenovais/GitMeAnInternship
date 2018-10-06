@@ -48,11 +48,7 @@ npm install
 
 ### Quick-starting MySQL database:
 
-* In order to quickly create the database used by the backend i provided a sql script. Open 
-```
-script.sql
-```
-and run it in your MySQL Database.
+* In order to quickly create the database used by the backend i provided a sql script. Open `script.sql` and run it in your MySQL Database.
 
 ### Setting up your database connection:
 
