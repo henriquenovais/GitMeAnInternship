@@ -56,10 +56,8 @@ and run it in your MySQL Database.
 
 ### Setting up your database connection:
 
-* Open the 
-```
-server.js
-```
+* Open the `server.js` file.
+
 * Change the following on line 33 to match your connection parameters. 
 ```js
 var connection = mysql.createConnection({
@@ -70,7 +68,6 @@ var connection = mysql.createConnection({
 });
 ```
 * The MySQL default would be:
-
 ```js
 var connection = mysql.createConnection({
   host: "localhost",
