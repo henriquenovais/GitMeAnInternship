@@ -7,8 +7,8 @@ First of all, this is a fullstack application created for the sole purpose of su
 
 This is a very basic search engine with a frontend for searching.
 
-##Tecnologies used here:
-###A) Backend:
+## Tecnologies used here:
+### A) Backend:
 * NodeJS with Express framework
 * Body-parser for data validation and JSON usage
 * MySQL Database
@@ -18,9 +18,9 @@ This is a very basic search engine with a frontend for searching.
 * cURL
 * NPM
 
-##Instalation
+## Instalation
 
-###Installing packages:
+### Installing packages:
 Go to the application folder(~/GitMeAnInternship), open your terminal and do:
 ```bash
 npm install
