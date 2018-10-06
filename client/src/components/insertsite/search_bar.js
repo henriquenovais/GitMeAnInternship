@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
     this.state = { term: ''};
   }
   
-  userUsage(event){
-    console.log(event.target.value);
+  onInputChange(input){
+    this.props.onSearchTermChange(this.state.term);
   }
 
   render() {
@@ -20,7 +21,7 @@ class SearchBar extends Component {
           onChange={event => this.setState({term: event.target.value})} />
         <br/>
 
-        <input className="btn btn-primary" type="submit" value="Search dank memes" />
+        <input onClick={input => this.onInputChange(input)} className="btn btn-primary" type="submit" value="Search dank websites" />
       </div>
     );
   }

@@ -11,15 +11,35 @@ class App extends Component {
     this.state = {
       searchresults: []
     };
+
+    this.websiteSearch('t');
+     
+  }
+
+ 
+
+  websiteSearch(input){
+    this.term = `/entities/${input}`;
+    console.log(this.term);
+      fetch(this.term)
+      .then(result => result.json())
+      .then(searchresults =>
+      this.setState({ searchresults }, () => console.log("Search fetched: ", searchresults))
+      );
+    
+   return (this.term);
   }
 
   componentDidMount() {
-    fetch("/entities/google")
+    console.log(this.term);
+    fetch(this.term)
       .then(result => result.json())
       .then(searchresults =>
-        this.setState({ searchresults }, () => console.log("Search fetched: ", searchresults))
+      this.setState({ searchresults }, () => console.log("Search fetched: ", searchresults))
       );
   }
+
+
 
   render() {
     return (
@@ -27,7 +47,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <SearchBar />
+        <SearchBar onSearchTermChange={term => this.websiteSearch(term)} />
         <SearchList searchresults={this.state.searchresults}/>
       </div>
     );
