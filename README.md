@@ -60,7 +60,7 @@ and run it in your MySQL Database.
 ```
 server.js
 ```
-and change on line 33
+* Change the following on line 33 to match your connection parameters. 
 ```js
 var connection = mysql.createConnection({
   host: "localhost",
@@ -69,7 +69,7 @@ var connection = mysql.createConnection({
   database: "jusearch"
 });
 ```
-to your connection parameters. The MySQL default would be:
+* The MySQL default would be:
 
 ```js
 var connection = mysql.createConnection({
