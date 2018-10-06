@@ -94,6 +94,7 @@ npm start
 ```bash
 curl -X POST http://localhost:5000/entities -d '{"title": "Some URL", "type": "Some website content"}'
 ```
+###### In case you choose to apply this application's code in any project, please note that 'title' and 'type' are just placeholder names for the column.This is not the best practice.
 
 * To search a website and receive a JSON response of the server:
 ```bash
