@@ -5,7 +5,7 @@
 ## Brief introduction:
 First of all, this is a fullstack application created for the sole purpose of submitting it to an institution's  internship selective process, that said be very aware that not to apply this directly to any of your projects without giving the code a good review in order to uphold your own best practice's standards.
 
-This is a very basic website search engine with a frontend for searching.
+This is a very basic website search engine with a frontend for searching. The search engine works through the usage of MySQL's FULLTEXT indexing.
 
 ## Tecnologies used here:
 ### A) Backend:

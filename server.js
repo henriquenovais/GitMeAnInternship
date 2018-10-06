@@ -61,6 +61,8 @@ application.post("/entities", (req, res) => {
 application.get("/entities/:search", (req, res) => {
 //In case of GET request through the '/entities/:search' endpoint do:
   var search = req.params.search;
+  //This method of search enable the use of MySQL's FULLTEXT index.
+  //To learn more: https://dev.mysql.com/doc/refman/5.6/en/innodb-fulltext-index.html
   const SEARCH_QUERY =
     `SELECT * FROM jusearch.website WHERE MATCH(title) AGAINST ('${search}')
      OR MATCH(type) AGAINST ('${search}')`;
