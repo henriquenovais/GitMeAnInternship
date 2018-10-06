@@ -5,7 +5,7 @@
 ## Brief introduction:
 First of all, this is a fullstack application created for the sole purpose of submitting it to an institution's  internship selective process, that said be very aware that not to apply this directly to any of your projects without giving the code a good review in order to uphold your own best practice's standards.
 
-This is a very basic search engine with a frontend for searching.
+This is a very basic website search engine with a frontend for searching.
 
 ## Tecnologies used here:
 ### A) Backend:
@@ -14,9 +14,10 @@ This is a very basic search engine with a frontend for searching.
 * MySQL Database and package module
 ### B) Frontend:
 * Create-react-app and all its packages
-### C) For testing and package management:
+### C) For testing, package management and deploy:
 * cURL
 * NPM
+* concurrently package
 
 ## Instalation
 
@@ -73,12 +74,30 @@ var connection = mysql.createConnection({
 });
 ```
 
+### Application usage:
+
+* Go to ~/GitMeAnInternship or ~/GitMeAnInternship-master (depending on how you downloaded the repository) and open a terminal window. To run both client and server concurrently:
 ```bash
-curl -X POST http://localhost:5000/entities -d '{"title": "Some title", "type": "TOPIC"}'
+npm run dev
+```
+* You could start one side of the application at a time. You could go to ~/GitMeAnInternship/ and do:
+```bash
+node server
+```
+* And then open ~/GitMeAnInternship/client and do:
+```bash
+npm start
+```
+* Go to your web browser and access <a href="http://localhost:3000/entities" target="_blank"> http://localhost:3000/</a> in order to enjoy the client side searching.
+
+* To input a new website into the database through cURL:
+```bash
+curl -X POST http://localhost:5000/entities -d '{"title": "Some URL", "type": "Some website content"}'
 ```
 
+* To search a website and receive a JSON response of the server:
 ```bash
-curl -X GET http://localhost:3000/entities/searchterm 
+curl -X GET http://localhost:3000/entities/yoursearchterm 
 ```
 
 
