@@ -6,7 +6,7 @@ const SearchListItem = ({searchresults}) => {
 
     return ( 
     <div>
-        <li className="list-group-item"> <a href={title} target="_blank">{type}</a> </li>
+        <li className="list-group-item"> <a href={title} target="_blank" rel="noopener noreferrer">{type}</a> </li>
     </div>
     );
   }
