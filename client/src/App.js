@@ -12,7 +12,7 @@ class App extends Component {
       searchresults: []
     };
 
-    this.websiteSearch('t');
+    this.websiteSearch('website');
      
   }
 
