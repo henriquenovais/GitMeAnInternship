@@ -11,7 +11,7 @@ This is a very basic search engine with a frontend for searching.
 ### A) Backend:
 * NodeJS with Express framework
 * Body-parser for data validation and JSON usage
-* MySQL Database
+* MySQL Database and package module
 ### B) Frontend:
 * Create-react-app and all its packages
 ### C) For testing and package management:
@@ -21,9 +21,63 @@ This is a very basic search engine with a frontend for searching.
 ## Instalation
 
 ### Installing packages:
-Go to the application folder(~/GitMeAnInternship), open your terminal and do:
+* Go to the application folder ~/GitMeAnInternship or ~/GitMeAnInternship-master (depending on how you downloaded the repository), open your terminal and do:
+
 ```bash
 npm install
+```
+
+* Go to the application folder ~/GitMeAnInternship/client or ~/GitMeAnInternship-master/client (depending on how you downloaded the repository), open your terminal and do:
+
+```bash
+npm install
+```
+
+### Installing cURL, MySQL Database, NPM and NodeJS:
+
+* Visit the following link for instructions on how to download cURL: <br>
+<a href="https://curl.haxx.se/download.html" target="_blank">cURL</a>
+
+
+* To download NodeJS and NPM(both applications are installed together), visit the following website: <br>
+<a href="https://nodejs.org/en/download/" target="_blank">NodeJS and NPM</a>
+
+* Highly recommend to download MySQL with the MySQL's workbench, visit the following website: <br>
+<a href="https://dev.mysql.com/downloads/" target="_blank"> MySQL</a>
+
+
+### Quick-starting MySQL database:
+
+* In order to quickly create the database used by the backend i provided a sql script. Open 
+```
+script.sql
+```
+and run it in your MySQL Database.
+
+### Setting up your database connection:
+
+* Open the 
+```
+server.js
+```
+and change on line 33
+```js
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "1234",
+  database: "jusearch"
+});
+```
+to your connection parameters. The MySQL default would be:
+
+```js
+var connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "jusearch"
+});
 ```
 
 ```bash
