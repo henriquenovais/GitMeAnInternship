@@ -1,9 +1,8 @@
 const express = require("express"); //NodeJs Framework
-const application = express();  //main object to be used in this application.
-const bodyParser = require("body-parser");//Information parsing tool
-const mysql = require("mysql"); //MySQL Database 
-const port = 5000; //Port address to 
-
+const application = express(); //main object to be used in this application.
+const bodyParser = require("body-parser"); //Information parsing tool
+const mysql = require("mysql"); //MySQL Database
+const port = 5000; //Port address to
 
 /*
 Very important to note that in order to be able to receive 
@@ -27,8 +26,7 @@ application.use(bodyParser.json({ type: "*/*" }));
 //What is this? What difference does it make?
 application.use(bodyParser.urlencoded({ extended: true }));
 
-
-//Defining connection parameters through the mysql object 
+//Defining connection parameters through the mysql object
 //which stores the mysql database package:
 var connection = mysql.createConnection({
   host: "localhost",
@@ -46,7 +44,7 @@ connection.connect(err => {
 application.post("/entities", (req, res) => {
   //In case of POST request through the '/entities' endpoint do:
   var info = req.body;
-  const INSERT_QUERY = "INSERT INTO jusearch.website SET ?"; 
+  const INSERT_QUERY = "INSERT INTO jusearch.website SET ?";
 
   var query = connection.query(INSERT_QUERY, info, (err, result) => {
     if (err) {
@@ -57,16 +55,14 @@ application.post("/entities", (req, res) => {
   });
 });
 
-
 application.get("/entities/:search", (req, res) => {
-//In case of GET request through the '/entities/:search' endpoint do:
+  //In case of GET request through the '/entities/:search' endpoint do:
   var search = req.params.search;
   //This method of search enable the use of MySQL's FULLTEXT index.
   //To learn more: https://dev.mysql.com/doc/refman/5.6/en/innodb-fulltext-index.html
-  const SEARCH_QUERY =
-    `SELECT * FROM jusearch.website WHERE MATCH(title) AGAINST ('${search}')
+  const SEARCH_QUERY = `SELECT * FROM jusearch.website WHERE MATCH(title) AGAINST ('${search}')
      OR MATCH(type) AGAINST ('${search}')`;
-//Using the connection MySQL object to do the query.
+  //Using the connection MySQL object to do the query.
   var query = connection.query(SEARCH_QUERY, (err, result) => {
     if (err) {
       return err;

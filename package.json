@@ -6,7 +6,8 @@
   "scripts": {
     "client": "cd client && npm start",
     "server": "node server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "prettier": "prettier '{client/src/**,.}/*.{js,jsx}' --write"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
   },
   "homepage": "https://github.com/henriquenovais/GitMeAnInternship#readme",
   "devDependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "prettier": "^1.14.3"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
